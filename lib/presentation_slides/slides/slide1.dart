@@ -6,18 +6,16 @@ class Slide1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: buildImagemEstudante());
+    return Scaffold(body: buildBody());
   }
 }
 
-buildImagemEstudante() {
+buildBody() {
   return Center(
     child: Column(children: [
       const SizedBox(height: 96),
       const Image(
-          image: AssetImage('assets/girl-reading.png'),
-          height: 250,
-          width: 250),
+          image: AssetImage('assets/boy-reading.png'), height: 250, width: 250),
       const SizedBox(height: 32),
       Padding(
           padding: const EdgeInsets.all(6),
