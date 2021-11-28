@@ -34,6 +34,16 @@ class _StartPageState extends State<StartPage> {
               onPageChanged: onPageChanged,
               itemBuilder: (ctx, i) => slideList[i])),
       buildDotIndicator(),
+      const SizedBox(height: 15),
+      TextButton(
+          onPressed: () {},
+          child: Text(
+            'Login',
+            style: TextStyle(color: Color(0xFF768c83)),
+          )),
+      TextButton(
+          onPressed: () {},
+          child: Text('Cadastro', style: TextStyle(color: Color(0xFF768c83))))
     ]));
   }
 }
