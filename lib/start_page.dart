@@ -34,16 +34,19 @@ class _StartPageState extends State<StartPage> {
               onPageChanged: onPageChanged,
               itemBuilder: (ctx, i) => slideList[i])),
       buildDotIndicator(),
-      const SizedBox(height: 15),
+      const SizedBox(height: 30),
+      ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+              minimumSize: Size(150, 40),
+              primary: Color(0xFF61b98e),
+              onPrimary: Colors.white),
+          child: Text('Login')),
+      const SizedBox(height: 10),
       TextButton(
           onPressed: () {},
-          child: Text(
-            'Login',
-            style: TextStyle(color: Color(0xFF768c83)),
-          )),
-      TextButton(
-          onPressed: () {},
-          child: Text('Cadastro', style: TextStyle(color: Color(0xFF768c83))))
+          child: Text('Não possui uma conta? Cadastre-se',
+              style: TextStyle(color: Colors.black54)))
     ]));
   }
 }
