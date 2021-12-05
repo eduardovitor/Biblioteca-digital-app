@@ -6,7 +6,7 @@ class Slide4 extends StatelessWidget {
   const Slide4({Key? key}) : super(key: key);
   final String texto1 = 'Descubra mais sobre \n seus assuntos favoritos';
   final String texto2 =
-      ' Sejam livros didáticos ou paradidáticos, aqui você tem \n uma leitura produtiva e interessante ';
+      ' Sejam livros didáticos ou paradidáticos, aqui você tem uma leitura produtiva e interessante ';
   final String path = 'assets/box.png';
 
   @override

@@ -33,11 +33,16 @@ class _MyFormState extends State<MyForm> {
           const SizedBox(height: 15),
           buildSenhaInput(),
           const SizedBox(height: 25),
+          buildRowOpcoes(),
+          const SizedBox(height: 15),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                   minimumSize: Size(150, 40),
                   primary: Color(0xFF61b98e),
-                  onPrimary: Colors.white),
+                  onPrimary: Colors.white,
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  )),
               onPressed: () {
                 if (_formkey.currentState!.validate()) {
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -62,22 +67,77 @@ buildEmailInput() {
         }
         return null;
       },
+      style: TextStyle(color: Color(0xFF61b98e)),
       decoration: InputDecoration(
           hintText: 'Digite seu email',
           labelText: 'Email',
-          border: OutlineInputBorder()));
+          floatingLabelBehavior: FloatingLabelBehavior.never,
+          border:
+              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: new BorderRadius.circular(30),
+              borderSide: BorderSide(color: Color(0xFF61b98e)))));
 }
 
 buildSenhaInput() {
   return TextFormField(
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter some text';
+          return 'Por favor digite algo';
         }
         return null;
       },
       decoration: InputDecoration(
           hintText: 'Digite sua senha',
           labelText: 'Senha',
-          border: OutlineInputBorder()));
+          floatingLabelBehavior: FloatingLabelBehavior.never,
+          border:
+              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: new BorderRadius.circular(30),
+              borderSide: BorderSide(color: Color(0xFF61b98e)))));
+}
+
+buildRowOpcoes() {
+  return Row(
+    children: [
+      CheckButtonWidget(),
+      Text('Permanecer logado ?', style: TextStyle(fontSize: 11)),
+      const SizedBox(width: 35),
+      Text('Esqueceu a senha ?', style: TextStyle(fontSize: 11))
+    ],
+  );
+}
+
+class CheckButtonWidget extends StatefulWidget {
+  const CheckButtonWidget({Key? key}) : super(key: key);
+
+  @override
+  _CheckButtonWidgetState createState() => _CheckButtonWidgetState();
+}
+
+class _CheckButtonWidgetState extends State<CheckButtonWidget> {
+  bool isChecked = false;
+  @override
+  Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      return const Color(0xFF61b98e);
+    }
+
+    return Checkbox(
+      checkColor: Colors.white,
+      fillColor: MaterialStateProperty.resolveWith(getColor),
+      value: isChecked,
+      onChanged: (bool? value) {
+        setState(() {
+          isChecked = value!;
+        });
+      },
+    );
+  }
 }
