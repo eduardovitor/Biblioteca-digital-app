@@ -67,6 +67,7 @@ buildEmailInput() {
         }
         return null;
       },
+      cursorColor: Color(0xFF61b98e),
       style: TextStyle(color: Color(0xFF61b98e)),
       decoration: InputDecoration(
           hintText: 'Digite seu email',
@@ -87,6 +88,7 @@ buildSenhaInput() {
         }
         return null;
       },
+      cursorColor: Color(0xFF61b98e),
       decoration: InputDecoration(
           hintText: 'Digite sua senha',
           labelText: 'Senha',

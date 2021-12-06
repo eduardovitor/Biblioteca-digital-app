@@ -1,3 +1,4 @@
+import 'package:app_biblioteca_digital/cadastro.dart';
 import 'package:app_biblioteca_digital/login.dart';
 import 'package:flutter/material.dart';
 import 'package:app_biblioteca_digital/presentation_slides/slides/slide1.dart';
@@ -50,7 +51,12 @@ class _StartPageState extends State<StartPage> {
           child: Text('Login')),
       const SizedBox(height: 10),
       TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Cadastro()),
+            );
+          },
           child: Text('Não possui uma conta? Cadastre-se',
               style: TextStyle(color: Colors.black54)))
     ]));
