@@ -1,3 +1,4 @@
+import 'package:app_biblioteca_digital/home.dart';
 import 'package:flutter/material.dart';
 
 class Cadastro extends StatefulWidget {
@@ -56,10 +57,10 @@ class _MyFormState extends State<MyForm> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('')),
                   );
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => MenuPage()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
                 }
               },
               child: Text("Cadastrar")),
@@ -76,7 +77,6 @@ buildEmailInput() {
         return null;
       },
       cursorColor: Color(0xFF61b98e),
-      style: TextStyle(color: Color(0xFF61b98e)),
       decoration: InputDecoration(
           hintText: 'Digite seu email',
           labelText: 'Email',
