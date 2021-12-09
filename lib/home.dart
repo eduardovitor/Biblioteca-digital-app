@@ -23,9 +23,7 @@ class _HomeState extends State<Home> {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
-        backgroundColor: const Color(0xFF61b98e),
-      ),
+          title: const Text('Home'), backgroundColor: const Color(0xFF61b98e)),
       body: Center(child: _pages.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
