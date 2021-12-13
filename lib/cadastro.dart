@@ -1,6 +1,8 @@
 import 'package:app_biblioteca_digital/home.dart';
 import 'package:flutter/material.dart';
 
+import 'form_input.dart';
+
 class Cadastro extends StatefulWidget {
   const Cadastro({Key? key}) : super(key: key);
 
@@ -30,19 +32,35 @@ class _MyFormState extends State<MyForm> {
         key: _formkey,
         child: ListView(padding: EdgeInsets.all(16), children: <Widget>[
           const SizedBox(height: 30),
-          buildNomeInput(),
+          const MyFormInput(
+              label: 'Nome', hint: 'Digite o nome', validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildSobrenomeInput(),
+          const MyFormInput(
+              label: 'Sobrenome',
+              hint: 'Digite o sobrenome',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildDataNascInput(),
+          const MyFormInput(
+              label: 'Data de nascimento',
+              hint: 'Digite sua data de nascimento',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildEmailInput(),
+          const MyFormInput(
+              label: 'Email',
+              hint: 'Digite seu email',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildSenhaInput(),
+          const MyFormInput(
+              label: 'Senha',
+              hint: 'Digite a senha',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildMatriculaInput(),
+          const MyFormInput(
+              label: 'Matrícula (opcional)', validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildIdAdminInput(),
+          const MyFormInput(
+              label: 'ID de administrador (opcional)',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -66,144 +84,4 @@ class _MyFormState extends State<MyForm> {
               child: Text("Cadastrar")),
         ]));
   }
-}
-
-buildEmailInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          hintText: 'Digite seu email',
-          labelText: 'Email',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildSenhaInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          hintText: 'Digite sua senha',
-          labelText: 'Senha',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildNomeInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          hintText: 'Digite seu nome',
-          labelText: 'Nome',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildSobrenomeInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          hintText: 'Digite seu sobrenome',
-          labelText: 'Sobrenome',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildDataNascInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          hintText: 'Digite sua data de nascimento',
-          labelText: 'Data de nascimento',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildMatriculaInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          hintText: 'Digite sua matrícula',
-          labelText: 'Matrícula (opcional)',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildIdAdminInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          hintText: 'Digite seu ID de adminstrador',
-          labelText: 'ID de administrador (opcional)',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
 }

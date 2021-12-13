@@ -1,3 +1,4 @@
+import 'package:app_biblioteca_digital/form_input.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -31,9 +32,15 @@ class _MyFormState extends State<MyForm> {
         key: _formkey,
         child: ListView(padding: EdgeInsets.all(16), children: <Widget>[
           const SizedBox(height: 150),
-          buildEmailInput(),
+          const MyFormInput(
+              label: 'Email',
+              hint: 'Digite o email',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildSenhaInput(),
+          const MyFormInput(
+              label: 'Senha',
+              hint: 'Digite a senha',
+              validator: checkFieldEmpty),
           const SizedBox(height: 25),
           buildRowOpcoes(),
           const SizedBox(height: 15),
@@ -59,46 +66,6 @@ class _MyFormState extends State<MyForm> {
               child: Text("Entrar")),
         ]));
   }
-}
-
-buildEmailInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          hintText: 'Digite seu email',
-          labelText: 'Email',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildSenhaInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          hintText: 'Digite sua senha',
-          labelText: 'Senha',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
 }
 
 buildRowOpcoes() {

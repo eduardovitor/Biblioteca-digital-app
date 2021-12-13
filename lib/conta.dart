@@ -1,3 +1,4 @@
+import 'package:app_biblioteca_digital/form_input.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -40,19 +41,35 @@ class _MyFormState extends State<MyForm> {
         key: _formkey,
         child: ListView(padding: EdgeInsets.all(16), children: <Widget>[
           const SizedBox(height: 30),
-          buildNomeInput(),
+          const MyFormInput(
+              label: 'Nome', hint: 'Digite o nome', validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildSobrenomeInput(),
+          const MyFormInput(
+              label: 'Sobrenome',
+              hint: 'Digite o sobrenome',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildDataNascInput(),
+          const MyFormInput(
+              label: 'Data de nascimento',
+              hint: 'Digite a data de nascimento',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildEmailInput(),
+          const MyFormInput(
+              label: 'Email',
+              hint: 'Digite o email',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildSenhaInput(),
+          const MyFormInput(
+              label: 'Senha',
+              hint: 'Digite a senha',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildMatriculaInput(),
+          const MyFormInput(
+              label: 'Matrícula (opcional)', validator: checkFieldEmpty),
           const SizedBox(height: 15),
-          buildIdAdminInput(),
+          const MyFormInput(
+              label: 'ID de administrador (opcional) ',
+              validator: checkFieldEmpty),
           const SizedBox(height: 15),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -66,137 +83,4 @@ class _MyFormState extends State<MyForm> {
               child: Text("Salvar alterações")),
         ]));
   }
-}
-
-buildEmailInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          labelText: 'Email',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildSenhaInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          labelText: 'Senha',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildNomeInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          labelText: 'Nome',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildSobrenomeInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          labelText: 'Sobrenome',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildDataNascInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          labelText: 'Data de nascimento',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildMatriculaInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          labelText: 'Matrícula (opcional)',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
-}
-
-buildIdAdminInput() {
-  return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor digite algo';
-        }
-        return null;
-      },
-      cursorColor: Color(0xFF61b98e),
-      decoration: InputDecoration(
-          labelText: 'ID de administrador (opcional)',
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border:
-              OutlineInputBorder(borderRadius: new BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30),
-              borderSide: BorderSide(color: Color(0xFF61b98e)))));
 }
