@@ -7,6 +7,8 @@ import 'package:app_biblioteca_digital/presentation_slides/slides/slide4.dart';
 import 'package:app_biblioteca_digital/start_page.dart';
 import 'package:flutter/material.dart';
 
+import 'admin_pages/home_admin.dart';
+
 void main() {
-  runApp(MaterialApp(home: StartPage()));
+  runApp(MaterialApp(home: HomeAdmin()));
 }
