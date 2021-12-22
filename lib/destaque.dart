@@ -1,3 +1,4 @@
+import 'package:app_biblioteca_digital/widget/my_colors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,7 +21,7 @@ class _DestaqueState extends State<Destaque> {
                         fontSize: 20,
                         color: Colors.white,
                         fontWeight: FontWeight.bold))),
-            backgroundColor: const Color(0xFF61b98e),
+            backgroundColor: MyColors.my_green,
             automaticallyImplyLeading: false),
         body: Column(children: [
           const SizedBox(height: 20),

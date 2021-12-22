@@ -1,4 +1,5 @@
-import 'package:app_biblioteca_digital/form_input.dart';
+import 'package:app_biblioteca_digital/widget/form_input.dart';
+import 'package:app_biblioteca_digital/widget/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,7 +22,7 @@ class _ContaState extends State<Conta> {
                         color: Colors.white,
                         fontWeight: FontWeight.bold))),
             automaticallyImplyLeading: false,
-            backgroundColor: const Color(0xFF61b98e)),
+            backgroundColor: MyColors.my_green),
         body: MyForm());
   }
 }
@@ -62,7 +63,8 @@ class _MyFormState extends State<MyForm> {
           const MyFormInput(
               label: 'Senha',
               hint: 'Digite a senha',
-              validator: checkFieldEmpty),
+              validator: checkFieldEmpty,
+              isTextObscured: true),
           const SizedBox(height: 15),
           const MyFormInput(
               label: 'Matrícula (opcional)', validator: checkFieldEmpty),
@@ -74,7 +76,7 @@ class _MyFormState extends State<MyForm> {
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                   minimumSize: Size(150, 40),
-                  primary: Color(0xFF61b98e),
+                  primary: MyColors.my_green,
                   onPrimary: Colors.white,
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),

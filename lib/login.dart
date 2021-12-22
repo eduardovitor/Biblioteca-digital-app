@@ -1,4 +1,5 @@
-import 'package:app_biblioteca_digital/form_input.dart';
+import 'package:app_biblioteca_digital/widget/form_input.dart';
+import 'package:app_biblioteca_digital/widget/my_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -40,14 +41,15 @@ class _MyFormState extends State<MyForm> {
           const MyFormInput(
               label: 'Senha',
               hint: 'Digite a senha',
-              validator: checkFieldEmpty),
+              validator: checkFieldEmpty,
+              isTextObscured: true),
           const SizedBox(height: 25),
           buildRowOpcoes(),
           const SizedBox(height: 15),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                   minimumSize: Size(150, 40),
-                  primary: Color(0xFF61b98e),
+                  primary: MyColors.my_green,
                   onPrimary: Colors.white,
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),
@@ -96,7 +98,7 @@ class _CheckButtonWidgetState extends State<CheckButtonWidget> {
         MaterialState.hovered,
         MaterialState.focused,
       };
-      return const Color(0xFF61b98e);
+      return MyColors.my_green;
     }
 
     return Checkbox(

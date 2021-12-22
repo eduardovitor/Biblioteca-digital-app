@@ -1,4 +1,5 @@
 import 'package:app_biblioteca_digital/card_genero.dart';
+import 'package:app_biblioteca_digital/widget/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -62,7 +63,7 @@ class _PesquisarState extends State<Pesquisar> {
             )
           ],
           automaticallyImplyLeading: false,
-          backgroundColor: Color(0xFF61b98e),
+          backgroundColor: MyColors.my_green,
         ),
         body: GridView.count(
             primary: false,

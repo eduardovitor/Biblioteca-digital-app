@@ -1,7 +1,8 @@
 import 'package:app_biblioteca_digital/home.dart';
+import 'package:app_biblioteca_digital/widget/my_colors.dart';
 import 'package:flutter/material.dart';
 
-import 'form_input.dart';
+import 'widget/form_input.dart';
 
 class Cadastro extends StatefulWidget {
   const Cadastro({Key? key}) : super(key: key);
@@ -53,7 +54,8 @@ class _MyFormState extends State<MyForm> {
           const MyFormInput(
               label: 'Senha',
               hint: 'Digite a senha',
-              validator: checkFieldEmpty),
+              validator: checkFieldEmpty,
+              isTextObscured: true),
           const SizedBox(height: 15),
           const MyFormInput(
               label: 'Matrícula (opcional)', validator: checkFieldEmpty),
@@ -65,7 +67,7 @@ class _MyFormState extends State<MyForm> {
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                   minimumSize: Size(150, 40),
-                  primary: Color(0xFF61b98e),
+                  primary: MyColors.my_green,
                   onPrimary: Colors.white,
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),

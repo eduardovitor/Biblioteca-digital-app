@@ -1,5 +1,6 @@
 import 'package:app_biblioteca_digital/cadastro.dart';
 import 'package:app_biblioteca_digital/login.dart';
+import 'package:app_biblioteca_digital/widget/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:app_biblioteca_digital/presentation_slides/slides/slide1.dart';
 import 'package:app_biblioteca_digital/presentation_slides/slides/slide2.dart';
@@ -46,7 +47,7 @@ class _StartPageState extends State<StartPage> {
           },
           style: ElevatedButton.styleFrom(
               minimumSize: Size(150, 40),
-              primary: Color(0xFF61b98e),
+              primary: MyColors.my_green,
               onPrimary: Colors.white),
           child: Text('Login')),
       const SizedBox(height: 10),

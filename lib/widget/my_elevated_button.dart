@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MyElevatedButton extends StatefulWidget {
+class MyElevatedButton extends StatelessWidget {
   final String text;
-  const MyElevatedButton({Key? key, required this.text}) : super(key: key);
-
-  @override
-  _MyElevatedButtonState createState() => _MyElevatedButtonState();
-}
-
-class _MyElevatedButtonState extends State<MyElevatedButton> {
-  String get text => widget.text;
+  final dynamic Function()? onPressed;
+  const MyElevatedButton(
+      {Key? key, required this.text, required this.onPressed})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -20,7 +16,7 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
             )),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(text));
   }
 }

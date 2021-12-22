@@ -2,6 +2,7 @@ import 'package:app_biblioteca_digital/conta.dart';
 import 'package:app_biblioteca_digital/destaque.dart';
 import 'package:app_biblioteca_digital/favoritos.dart';
 import 'package:app_biblioteca_digital/pesquisar.dart';
+import 'package:app_biblioteca_digital/widget/my_colors.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -25,7 +26,7 @@ class _HomeState extends State<Home> {
       body: Center(child: _pages.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xFF61b98e),
+        selectedItemColor: MyColors.my_green,
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
         onTap: _onItemTapped,

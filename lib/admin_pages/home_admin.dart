@@ -1,4 +1,11 @@
-import 'package:app_biblioteca_digital/admin_pages/my_elevated_button.dart';
+import 'package:app_biblioteca_digital/admin_pages/atualizar_livro.dart';
+import 'package:app_biblioteca_digital/admin_pages/atualizar_material.dart';
+import 'package:app_biblioteca_digital/admin_pages/cadastro_livro.dart';
+import 'package:app_biblioteca_digital/admin_pages/cadastro_material.dart';
+import 'package:app_biblioteca_digital/admin_pages/pesquisar_livro.dart';
+import 'package:app_biblioteca_digital/admin_pages/remover_livro.dart';
+import 'package:app_biblioteca_digital/admin_pages/remover_material.dart';
+import 'package:app_biblioteca_digital/widget/my_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,29 +32,76 @@ class _HomeAdminState extends State<HomeAdmin> {
       body: buildBody(),
     );
   }
+
+  irParaCadastroLivro() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => CadastroLivro()));
+  }
+
+  irParaCadastroMaterial() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => CadastroMaterial()));
+  }
+
+  irParaAtualizarLivro() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => AtualizarLivro()));
+  }
+
+  irParaAtualizarMaterial() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => AtualizarMaterial()));
+  }
+
+  irParaPesquisarLivro() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => PesquisarLivro()));
+  }
+
+  irParaRemoverLivro() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => RemoverLivro()));
+  }
+
+  irParaRemoverMaterial() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => RemoverMaterial()));
+  }
+
+  buildBody() {
+    return Padding(
+        padding: const EdgeInsets.only(left: 65),
+        child: Column(
+          children: [
+            SizedBox(height: 5),
+            MyElevatedButton(
+                text: 'Cadastrar livro', onPressed: irParaCadastroLivro),
+            SizedBox(height: 5),
+            MyElevatedButton(
+              text: 'Cadastrar um material',
+              onPressed: irParaCadastroMaterial,
+            ),
+            SizedBox(height: 5),
+            MyElevatedButton(
+                text: 'Atualizar um livro', onPressed: irParaAtualizarLivro),
+            SizedBox(height: 5),
+            MyElevatedButton(
+                text: 'Atualizar um material',
+                onPressed: irParaAtualizarMaterial),
+            SizedBox(height: 5),
+            MyElevatedButton(
+                text: 'Pesquisar um livro', onPressed: irParaPesquisarLivro),
+            SizedBox(height: 5),
+            MyElevatedButton(
+                text: 'Remover um livro', onPressed: irParaRemoverLivro),
+            SizedBox(height: 5),
+            MyElevatedButton(
+                text: 'Remover um material', onPressed: irParaRemoverMaterial),
+            SizedBox(height: 5),
+            MyElevatedButton(text: 'Sair', onPressed: teste)
+          ],
+        ));
+  }
 }
 
-buildBody() {
-  return Padding(
-      padding: const EdgeInsets.only(left: 65),
-      child: Column(
-        children: const [
-          SizedBox(height: 5),
-          MyElevatedButton(text: 'Cadastrar livro'),
-          SizedBox(height: 5),
-          MyElevatedButton(text: 'Cadastrar um material'),
-          SizedBox(height: 5),
-          MyElevatedButton(text: 'Atualizar um livro'),
-          SizedBox(height: 5),
-          MyElevatedButton(text: 'Atualizar um material'),
-          SizedBox(height: 5),
-          MyElevatedButton(text: 'Pesquisar um livro'),
-          SizedBox(height: 5),
-          MyElevatedButton(text: 'Remover um livro'),
-          SizedBox(height: 5),
-          MyElevatedButton(text: 'Remover um material'),
-          SizedBox(height: 5),
-          MyElevatedButton(text: 'Sair')
-        ],
-      ));
-}
+teste() {}
