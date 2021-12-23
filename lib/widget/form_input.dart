@@ -5,6 +5,7 @@ class MyFormInput extends StatelessWidget {
   final String? changedValue;
   final String? label;
   final String? hint;
+  final Icon? icon;
   final bool isTextObscured;
   final String? Function(String?)? validator;
 
@@ -14,7 +15,8 @@ class MyFormInput extends StatelessWidget {
       this.label,
       this.isTextObscured = false,
       this.validator,
-      this.hint})
+      this.hint,
+      this.icon})
       : super(key: key);
 
   @override
@@ -22,6 +24,7 @@ class MyFormInput extends StatelessWidget {
     return TextFormField(
         obscureText: isTextObscured,
         decoration: InputDecoration(
+            prefixIcon: icon,
             labelText: label,
             hintText: hint,
             floatingLabelBehavior: FloatingLabelBehavior.never,
