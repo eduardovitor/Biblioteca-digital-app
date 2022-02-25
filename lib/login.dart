@@ -27,21 +27,28 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   final _formkey = GlobalKey<FormState>();
+
+  TextEditingController controllerEmail = TextEditingController();
+  TextEditingController controllerSenha = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
         key: _formkey,
         child: ListView(padding: EdgeInsets.all(16), children: <Widget>[
           const SizedBox(height: 150),
-          const MyFormInput(
-              label: 'Email',
-              hint: 'Digite o email',
-              validator: checkFieldEmpty),
+          MyFormInput(
+            label: 'Email',
+            hint: 'Digite o email',
+            validator: checkFieldEmpty,
+            controller: controllerEmail,
+          ),
           const SizedBox(height: 15),
-          const MyFormInput(
+          MyFormInput(
               label: 'Senha',
               hint: 'Digite a senha',
               validator: checkFieldEmpty,
+              controller: controllerSenha,
               isTextObscured: true),
           const SizedBox(height: 25),
           buildRowOpcoes(),

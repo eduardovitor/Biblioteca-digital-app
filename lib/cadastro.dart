@@ -27,42 +27,55 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   final _formkey = GlobalKey<FormState>();
+
+  TextEditingController controllerNome = TextEditingController();
+  TextEditingController controllerSobrenome = TextEditingController();
+  TextEditingController controllerEmail = TextEditingController();
+  TextEditingController controllerSenha = TextEditingController();
+  TextEditingController controllerDatanasc = TextEditingController();
+  TextEditingController controllerIDAdm = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
         key: _formkey,
         child: ListView(padding: EdgeInsets.all(16), children: <Widget>[
           const SizedBox(height: 30),
-          const MyFormInput(
-              label: 'Nome', hint: 'Digite o nome', validator: checkFieldEmpty),
+          MyFormInput(
+              label: 'Nome',
+              hint: 'Digite o nome',
+              validator: checkFieldEmpty,
+              controller: controllerNome),
           const SizedBox(height: 15),
-          const MyFormInput(
+          MyFormInput(
               label: 'Sobrenome',
               hint: 'Digite o sobrenome',
-              validator: checkFieldEmpty),
+              validator: checkFieldEmpty,
+              controller: controllerSobrenome),
           const SizedBox(height: 15),
-          const MyFormInput(
+          MyFormInput(
               label: 'Data de nascimento',
               hint: 'Digite sua data de nascimento',
-              validator: checkFieldEmpty),
+              validator: checkFieldEmpty,
+              controller: controllerDatanasc),
           const SizedBox(height: 15),
-          const MyFormInput(
+          MyFormInput(
               label: 'Email',
               hint: 'Digite seu email',
-              validator: checkFieldEmpty),
+              validator: checkFieldEmpty,
+              controller: controllerEmail),
           const SizedBox(height: 15),
-          const MyFormInput(
+          MyFormInput(
               label: 'Senha',
               hint: 'Digite a senha',
               validator: checkFieldEmpty,
+              controller: controllerSenha,
               isTextObscured: true),
           const SizedBox(height: 15),
-          const MyFormInput(
-              label: 'Matrícula (opcional)', validator: checkFieldEmpty),
-          const SizedBox(height: 15),
-          const MyFormInput(
+          MyFormInput(
               label: 'ID de administrador (opcional)',
-              validator: checkFieldEmpty),
+              validator: checkFieldEmpty,
+              controller: controllerIDAdm),
           const SizedBox(height: 15),
           ElevatedButton(
               style: ElevatedButton.styleFrom(

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "956212961912",
+    "project_id": "biblioteca-te",
+    "storage_bucket": "biblioteca-te.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956212961912:android:f12ae6788852c5ead0838d",
+        "android_client_info": {
+          "package_name": "com.example.app_biblioteca_digital"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "956212961912-o2jggtrvftmklrjggd8udoqi5sckl0kb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_0W5KgQ6-xSl5N0z-U2Wb0DDwZ_VO7eg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "956212961912-o2jggtrvftmklrjggd8udoqi5sckl0kb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,11 +5,9 @@ class MyFormInput extends StatelessWidget {
   final String? changedValue;
   final String? label;
   final String? hint;
-  final Icon? icon;
   final bool isTextObscured;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
-
   const MyFormInput(
       {Key? key,
       this.changedValue,
@@ -17,26 +15,23 @@ class MyFormInput extends StatelessWidget {
       this.isTextObscured = false,
       this.validator,
       this.hint,
-      this.icon,
       this.controller})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        obscureText: isTextObscured,
-        validator: validator,
-        controller: controller,
-        decoration: InputDecoration(
-            prefixIcon: icon,
-            labelText: label,
-            hintText: hint,
-            floatingLabelBehavior: FloatingLabelBehavior.never,
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: Color(0xFF61b98e)))),
-        cursorColor: const Color(0xFF61b98e));
+      obscureText: isTextObscured,
+      validator: validator,
+      controller: controller,
+      decoration: InputDecoration(
+          labelText: label,
+          hintText: hint,
+          floatingLabelBehavior: FloatingLabelBehavior.never,
+          border: const OutlineInputBorder(borderRadius: BorderRadius.zero),
+          focusedBorder:
+              const OutlineInputBorder(borderRadius: BorderRadius.zero)),
+    );
   }
 }
 

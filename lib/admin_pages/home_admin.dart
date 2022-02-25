@@ -5,6 +5,7 @@ import 'package:app_biblioteca_digital/admin_pages/cadastro_material.dart';
 import 'package:app_biblioteca_digital/admin_pages/pesquisar_livro.dart';
 import 'package:app_biblioteca_digital/admin_pages/remover_livro.dart';
 import 'package:app_biblioteca_digital/admin_pages/remover_material.dart';
+import 'package:app_biblioteca_digital/login.dart';
 import 'package:app_biblioteca_digital/widget/my_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -68,6 +69,10 @@ class _HomeAdminState extends State<HomeAdmin> {
         context, MaterialPageRoute(builder: (context) => RemoverMaterial()));
   }
 
+  irParaLogin() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+  }
+
   buildBody() {
     return Padding(
         padding: const EdgeInsets.only(left: 65),
@@ -98,10 +103,8 @@ class _HomeAdminState extends State<HomeAdmin> {
             MyElevatedButton(
                 text: 'Remover um material', onPressed: irParaRemoverMaterial),
             SizedBox(height: 5),
-            MyElevatedButton(text: 'Sair', onPressed: teste)
+            MyElevatedButton(text: 'Sair', onPressed: irParaLogin)
           ],
         ));
   }
 }
-
-teste() {}
