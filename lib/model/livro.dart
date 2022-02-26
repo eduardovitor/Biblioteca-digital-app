@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
 class Livro {
-  final BigInt isbn;
+  final String isbn;
   final String titulo;
   final String autor;
   final String anopubli;

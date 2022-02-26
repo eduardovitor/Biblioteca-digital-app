@@ -1,6 +1,8 @@
 import 'package:app_biblioteca_digital/home.dart';
+import 'package:app_biblioteca_digital/model/usuario.dart';
 import 'package:app_biblioteca_digital/widget/my_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:app_biblioteca_digital/provider/usuario_provider.dart';
 
 import 'widget/form_input.dart';
 
@@ -28,8 +30,11 @@ class MyForm extends StatefulWidget {
 class _MyFormState extends State<MyForm> {
   final _formkey = GlobalKey<FormState>();
 
+  final _provider = new UsuariosProvider();
+
   TextEditingController controllerNome = TextEditingController();
   TextEditingController controllerSobrenome = TextEditingController();
+  TextEditingController controllerApelido = TextEditingController();
   TextEditingController controllerEmail = TextEditingController();
   TextEditingController controllerSenha = TextEditingController();
   TextEditingController controllerDatanasc = TextEditingController();
@@ -52,6 +57,12 @@ class _MyFormState extends State<MyForm> {
               hint: 'Digite o sobrenome',
               validator: checkFieldEmpty,
               controller: controllerSobrenome),
+          const SizedBox(height: 15),
+          MyFormInput(
+              label: 'Apelido',
+              hint: 'Escolha um apelido (será único)',
+              validator: checkFieldEmpty,
+              controller: controllerApelido),
           const SizedBox(height: 15),
           MyFormInput(
               label: 'Data de nascimento',
@@ -85,8 +96,18 @@ class _MyFormState extends State<MyForm> {
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),
                   )),
-              onPressed: () {
+              onPressed: () async {
                 if (_formkey.currentState!.validate()) {
+                  Usuario usuario = Usuario(
+                      controllerApelido.text,
+                      controllerNome.text,
+                      controllerSobrenome.text,
+                      controllerDatanasc.text,
+                      controllerSenha.text,
+                      controllerEmail.text,
+                      int.parse(controllerIDAdm.text));
+                  await _provider.put(usuario);
+
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('')),
                   );

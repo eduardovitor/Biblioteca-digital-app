@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:app_biblioteca_digital/model/usuario.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
@@ -20,51 +21,29 @@ class UsuariosProvider with ChangeNotifier {
   }
 
   Future<void> put(Usuario usuario) async {
-    if (usuario == null) {
+    if (usuario == null &&
+        usuario.apelido != null &&
+        !usuario.apelido.trim().isEmpty) {
       return;
-    }
-
-    if (usuario.id != null && _usuarios.containsKey(usuario.id)) {
-      _usuarios.update(
-          usuario.id.toString(),
-          (_) => Usuario(usuario.id, usuario.nome, usuario.sobrenome,
-              usuario.datanasc, usuario.senha, usuario.email, usuario.idAdm));
     } else {
-      final response = await http.post(Uri.parse('$_url/test.json'),
-          body: json.encode({
-            'id': usuario.id,
-            'nome': usuario.nome,
-            'sobrenome': usuario.sobrenome,
-            'datanasc': usuario.datanasc,
-            'senha': usuario.senha,
-            'email': usuario.email,
-            'idAdm': usuario.idAdm
-          }));
+      DatabaseReference ref = FirebaseDatabase.instance.ref('usuario');
 
-      final id = json.decode(response.body)['nome'];
-
-      _usuarios.putIfAbsent(
-          id,
-          () => Usuario(id, usuario.nome, usuario.sobrenome, usuario.datanasc,
-              usuario.senha, usuario.email, usuario.idAdm));
-
-      notifyListeners();
+      await ref.set({
+        'apelido': usuario.apelido,
+        'nome': usuario.nome,
+        'sobrenome': usuario.sobrenome,
+        'datanasc': usuario.datanasc,
+        'senha': usuario.senha,
+        'email': usuario.email,
+        'idAdm': usuario.idAdm
+      });
     }
+    notifyListeners();
   }
 
   void remove(Usuario usuario) {
-    if (usuario != null && usuario.id != null) {
-      _usuarios.remove(usuario.id);
-
-      notifyListeners();
+    if (usuario != null && usuario.apelido != null) {
+      print('ok');
     }
-  }
-
-  Future<bool> login(email, senha) async {
-    final response = await http.post(Uri.parse('$_url/livro.json'),
-        body: json.encode({
-          'email': email,
-          'senha': senha,
-        }));
   }
 }

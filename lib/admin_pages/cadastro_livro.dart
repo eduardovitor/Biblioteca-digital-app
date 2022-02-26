@@ -38,6 +38,8 @@ class MyForm extends StatefulWidget {
 class _MyFormState extends State<MyForm> {
   final _formkey = GlobalKey<FormState>();
 
+  final _provider = LivroProvider();
+
   TextEditingController controllerTitulo = TextEditingController();
   TextEditingController controllerAutor = TextEditingController();
   TextEditingController controllerAno = TextEditingController();
@@ -109,26 +111,27 @@ class _MyFormState extends State<MyForm> {
               controller: controllerLink),
           const SizedBox(height: 15),
           const SizedBox(height: 15),
-          MyElevatedButton(text: 'Cadastrar', onPressed: () {}),
-        ]));
-  }
+          MyElevatedButton(
+              text: 'Cadastrar',
+              onPressed: () async {
+                Livro livro = Livro(
+                    controllerISBN.text,
+                    controllerTitulo.text,
+                    controllerAutor.text,
+                    controllerAno.text,
+                    controllerEditora.text,
+                    controllerGenero.text,
+                    controllerPais.text,
+                    int.parse(controllerVolume.text),
+                    controllerLink.text);
 
-  void onPressed() async {
-    Livro livro = Livro(
-        BigInt.parse(controllerISBN.text),
-        controllerTitulo.text,
-        controllerAutor.text,
-        controllerAno.text,
-        controllerEditora.text,
-        controllerGenero.text,
-        controllerPais.text,
-        int.parse(controllerVolume.text),
-        controllerLink.text);
-    bool isValid = _formkey.currentState!.validate();
-    if (isValid) {
-      await LivroProvider().put(livro);
-      pushHomePage();
-    }
+                bool isValid = _formkey.currentState!.validate();
+                if (isValid) {
+                  await _provider.put(livro);
+                  pushHomePage();
+                }
+              }),
+        ]));
   }
 
   void pushHomePage() {

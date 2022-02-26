@@ -1,3 +1,6 @@
+import 'package:app_biblioteca_digital/admin_pages/home_admin.dart';
+import 'package:app_biblioteca_digital/model/usuario.dart';
+import 'package:app_biblioteca_digital/provider/usuario_provider.dart';
 import 'package:app_biblioteca_digital/widget/form_input.dart';
 import 'package:app_biblioteca_digital/widget/my_colors.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +39,17 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   final _formkey = GlobalKey<FormState>();
+
+  final _provider = new UsuariosProvider();
+
+  TextEditingController controllerNome = TextEditingController();
+  TextEditingController controllerSobrenome = TextEditingController();
+  TextEditingController controllerApelido = TextEditingController();
+  TextEditingController controllerEmail = TextEditingController();
+  TextEditingController controllerSenha = TextEditingController();
+  TextEditingController controllerDatanasc = TextEditingController();
+  TextEditingController controllerIDAdm = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -66,8 +80,7 @@ class _MyFormState extends State<MyForm> {
               validator: checkFieldEmpty,
               isTextObscured: true),
           const SizedBox(height: 15),
-          const MyFormInput(
-              label: 'Matrícula (opcional)', validator: checkFieldEmpty),
+          const MyFormInput(label: 'Matrícula (opcional)'),
           const SizedBox(height: 15),
           const MyFormInput(
               label: 'ID de administrador (opcional) ',
@@ -81,7 +94,27 @@ class _MyFormState extends State<MyForm> {
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),
                   )),
-              onPressed: () {},
+              onPressed: () async {
+                if (_formkey.currentState!.validate()) {
+                  Usuario usuario = Usuario(
+                      controllerApelido.text,
+                      controllerNome.text,
+                      controllerSobrenome.text,
+                      controllerDatanasc.text,
+                      controllerSenha.text,
+                      controllerEmail.text,
+                      int.parse(controllerIDAdm.text));
+                  await _provider.put(usuario);
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('')),
+                  );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeAdmin()),
+                  );
+                }
+              },
               child: Text("Salvar alterações")),
         ]));
   }

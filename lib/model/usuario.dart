@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
 class Usuario {
-  final int id;
+  final String apelido;
   final String nome;
   final String sobrenome;
   final String datanasc;
@@ -10,7 +10,7 @@ class Usuario {
   final int idAdm;
 
   const Usuario(
-      this.id,
+      @required this.apelido,
       @required this.nome,
       @required this.sobrenome,
       @required this.datanasc,
@@ -20,7 +20,7 @@ class Usuario {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
+      'apelido': apelido,
       'nome': nome,
       'sobrenome': sobrenome,
       'datanasc': datanasc,

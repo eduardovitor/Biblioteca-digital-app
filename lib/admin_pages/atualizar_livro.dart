@@ -113,7 +113,7 @@ class _MyFormState extends State<MyForm> {
 
   void onPressed() async {
     Livro livro = Livro(
-        BigInt.parse(controllerISBN.text),
+        controllerISBN.text,
         controllerTitulo.text,
         controllerAutor.text,
         controllerAno.text,

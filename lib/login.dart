@@ -1,3 +1,4 @@
+import 'package:app_biblioteca_digital/admin_pages/home_admin.dart';
 import 'package:app_biblioteca_digital/widget/form_input.dart';
 import 'package:app_biblioteca_digital/widget/my_colors.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class _MyFormState extends State<MyForm> {
 
   TextEditingController controllerEmail = TextEditingController();
   TextEditingController controllerSenha = TextEditingController();
+  TextEditingController controllerIDAdm = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +53,14 @@ class _MyFormState extends State<MyForm> {
               controller: controllerSenha,
               isTextObscured: true),
           const SizedBox(height: 25),
-          buildRowOpcoes(),
           const SizedBox(height: 15),
+          MyFormInput(
+              label: 'ID Administrador',
+              hint: 'Digite o ID secreto',
+              validator: checkFieldEmpty,
+              controller: controllerIDAdm,
+              isTextObscured: true),
+          buildRowOpcoes(),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                   minimumSize: Size(150, 40),
@@ -63,13 +71,23 @@ class _MyFormState extends State<MyForm> {
                   )),
               onPressed: () {
                 if (_formkey.currentState!.validate()) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('')),
-                  );
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Home()),
-                  );
+                  if (int.parse(controllerIDAdm.text) == 42) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('')),
+                    );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeAdmin()),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('')),
+                    );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                    );
+                  }
                 }
               },
               child: Text("Entrar")),
