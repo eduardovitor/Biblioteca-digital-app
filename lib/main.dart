@@ -1,7 +1,9 @@
-import 'package:app_biblioteca_digital/admin_pages/home_admin.dart';
 import 'package:app_biblioteca_digital/start_page.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
   runApp(const MaterialApp(home: StartPage()));
 }

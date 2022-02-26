@@ -1,6 +1,7 @@
 import 'package:app_biblioteca_digital/cadastro.dart';
 import 'package:app_biblioteca_digital/login.dart';
 import 'package:app_biblioteca_digital/widget/my_colors.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:app_biblioteca_digital/presentation_slides/slides/slide1.dart';
 import 'package:app_biblioteca_digital/presentation_slides/slides/slide2.dart';
@@ -53,6 +54,10 @@ class _StartPageState extends State<StartPage> {
       const SizedBox(height: 10),
       TextButton(
           onPressed: () {
+            // ignore: deprecated_member_use
+            DatabaseReference _test =
+                FirebaseDatabase.instance.reference().child("test");
+            _test.set("Hello world");
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Cadastro()),
