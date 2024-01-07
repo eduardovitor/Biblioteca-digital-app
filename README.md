@@ -13,6 +13,7 @@ Este projeto se refere a um MVP de um aplicativo capaz de armazenar informaçõe
 ## 🛠️ Funcionalidades
 
 - Cadastro de usuários
+- Login de usuários
 - Cadastro de livros
 
 
